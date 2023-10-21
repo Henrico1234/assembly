@@ -1,6 +1,6 @@
 #ifndef ARITIMETICA_H
 #define ARITIMETICA_H
 
-void aritimetica(char aux[][100], char instrucao[], char op1[], char op2[], char op3[]);
+void aritimetica(char acoes[][100], char instrucao[], int indice_reg1, int indice_reg2, int indice_reg3, int registrador[]);
 
  #endif
