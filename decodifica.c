@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "decodifica.h"
 #include "aritimetica.h"
+#include "logi.h"
 
 
 void decodifica(char acoes[][100], int N){
@@ -16,24 +17,21 @@ void decodifica(char acoes[][100], int N){
 
     for (i = 0 ; i < N; i++)
     {
-        sscanf(acoes[i], "%s", &instrucao);
+     sscanf(acoes[i], "%s", instrucao);
         if(strcmp(instrucao,"MOV") == 0){
                 sscanf(acoes[i],"%s %s %s", instrucao, var1, var2);
                 if(var1[0] == 'R'){
                     int indice_reg1  = 0;
                     sscanf(var1,"R%d", &indice_reg1);
-                if(var2[0] != 'R'){
-                    int var2_int = 0;
-                    /*
-                    sscanf(var2, "%d", var2_int);
-                    */
-                    var2_int = atoi(var2);
-                    registrador[indice_reg1] = var2_int; 
+                if(var2[0] != 'R'){ 
+                    int int_var2;
+                    sscanf(var2,"%d", &int_var2);
+                    registrador[indice_reg1] = int_var2;
                 }
                 if(var2[0] == 'R'){
-                    int indice_reg2 = 0;
-                    sscanf(var2,"R%d", &indice_reg2);
-                    registrador[indice_reg1] = registrador[indice_reg2];  
+                    int indice_reg2  = 0;
+                    sscanf(var1,"R%d", &indice_reg2);
+                    registrador[indice_reg1] =  registrador[indice_reg2]; 
                 }
             }
         }
@@ -48,26 +46,21 @@ void decodifica(char acoes[][100], int N){
             sscanf(var3,"R%d", &indice_reg3);
             aritimetica(acoes, instrucao, indice_reg1, indice_reg2, indice_reg3, registrador);  
         }  
-    }   
-    
+       
+
     if(strcmp(instrucao,"BEQ") == 0 || strcmp(instrucao,"BLT") == 0 || strcmp(instrucao,"JMP") == 0 ){
         int endereco = 0;
-        sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, endereco);
+        sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, &endereco);
         int indice_reg1 = 0;
         sscanf(var1,"R%d", &indice_reg1);
         int indice_reg2 = 0; 
         sscanf(var2,"R%d", &indice_reg2);
-        logi(acoes, registrador, instrucao, indice_reg1, indice_reg2, endereco);
-
+        i = logi(acoes, registrador, instrucao, indice_reg1, indice_reg2, endereco) - 1;
     }
-
-
-
-
-
-
-
+    }
+       printf("%d", registrador[1]);
 }
+
 
 
 
