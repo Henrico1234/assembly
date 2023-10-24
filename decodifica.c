@@ -16,7 +16,7 @@ void decodifica(char acoes[][100], int N){
 
     for (i = 0 ; i < N; i++)
     {
-        sscanf(acoes[i], "%s", &instrucao);
+        sscanf(acoes[i], "%s", instrucao);
         if(strcmp(instrucao,"MOV") == 0){
                 sscanf(acoes[i],"%s %s %s", instrucao, var1, var2);
                 if(var1[0] == 'R'){
@@ -49,10 +49,11 @@ void decodifica(char acoes[][100], int N){
             aritimetica(acoes, instrucao, indice_reg1, indice_reg2, indice_reg3, registrador);  
         }  
     }   
-    
+    printf("%d\n", registrador[1]);
+
     if(strcmp(instrucao,"BEQ") == 0 || strcmp(instrucao,"BLT") == 0 || strcmp(instrucao,"JMP") == 0 ){
         int endereco = 0;
-        sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, endereco);
+        sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, &endereco);
         int indice_reg1 = 0;
         sscanf(var1,"R%d", &indice_reg1);
         int indice_reg2 = 0; 
@@ -60,11 +61,6 @@ void decodifica(char acoes[][100], int N){
         logi(acoes, registrador, instrucao, indice_reg1, indice_reg2, endereco);
 
     }
-
-
-
-
-
 
 
 }
