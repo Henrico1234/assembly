@@ -24,6 +24,9 @@ void decodifica(char acoes[][100], int N){
                     sscanf(var1,"R%d", &indice_reg1);
                 if(var2[0] != 'R'){
                     int var2_int = 0;
+                    /*
+                    sscanf(var2, "%d", var2_int);
+                    */
                     var2_int = atoi(var2);
                     registrador[indice_reg1] = var2_int; 
                 }
