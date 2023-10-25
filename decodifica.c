@@ -15,7 +15,7 @@ void decodifica(char acoes[][100], int N){
     registrador[i] = 0;
     }
 
-    for (i = 0 ; i < N; i++)
+    for (i = 0 ; i < 100000; i++)
     {
      sscanf(acoes[i], "%s", instrucao);
         if(strcmp(instrucao,"MOV") == 0){
