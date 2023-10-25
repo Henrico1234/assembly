@@ -11,9 +11,9 @@ char tes[5];
 for( i = 0; i < N ; i++){
     fgets(acoes[i], sizeof(acoes[i]), stdin);
     sscanf(acoes[i], "%s", tes);
-    if(strcmp(tes, "EXIT") == 0){
-    break;
+   if(strcmp(tes, "EXIT") == 0){
+   break;
       }
 }
-decodifica(acoes, N);
+      decodifica(acoes, N);
 }

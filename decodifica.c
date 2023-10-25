@@ -15,9 +15,14 @@ void decodifica(char acoes[][100], int N){
     registrador[i] = 0;
     }
 
-    for (i = 0 ; i < 100000; i++)
+    for (i = 0 ; i < 100; i++)
     {
-     sscanf(acoes[i], "%s", instrucao);
+        sscanf(acoes[i], "%s", instrucao);  
+
+        if(strcmp(instrucao,"EXIT") == 0){
+        break;
+        }
+
         if(strcmp(instrucao,"MOV") == 0){
                 sscanf(acoes[i],"%s %s %s", instrucao, var1, var2);
                 if(var1[0] == 'R'){
@@ -55,11 +60,15 @@ void decodifica(char acoes[][100], int N){
         sscanf(var1,"R%d", &indice_reg1);
         int indice_reg2 = 0; 
         sscanf(var2,"R%d", &indice_reg2);
-        i = logi(acoes, registrador, instrucao, indice_reg1, indice_reg2, endereco) - 1;
+        logi(registrador, instrucao, indice_reg1, indice_reg2, endereco, var1, &i);
+
     }
+    
     }
-       printf("%d", registrador[1]);
-}
+           printf("%d", registrador[1]);
+    }
+
+
 
 
 

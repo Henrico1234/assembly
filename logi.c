@@ -3,23 +3,26 @@
 #include <stdlib.h>
 #include "logi.h"
 
-int logi(char acoes[][100], int registrador[], char instrucao[],  int indice_reg1, int indice_reg2, int endereco){
-   int novo_endereco;
+void logi( int registrador[], char instrucao[],  int indice_reg1, int indice_reg2, int endereco, char var1[], int *i){
     if(strcmp(instrucao,"JMP") == 0){
-        printf("%s %d", instrucao, endereco);
-        novo_endereco = endereco;
+        int enderecoj;
+        sscanf(var1, "%d", & enderecoj);
+        *i = enderecoj - 1;
+        printf("%d", *i);
         
     }
     if(strcmp(instrucao,"BEQ") == 0){
         if(registrador[indice_reg1] == registrador[indice_reg2]){
-            novo_endereco = endereco;
+            *i = endereco -1;
+            printf("%d", *i);
     }
         
     }
     if(strcmp(instrucao,"BLT") == 0){
         if(registrador[indice_reg1] < registrador[indice_reg2]){
-            novo_endereco = endereco;
+            //printf("%s %d", instrucao, endereco);
+            *i = endereco -1;
+            printf("%d", *i);
         }
     }
-    return novo_endereco;
 }
