@@ -43,8 +43,8 @@ void decodifica(char acoes[][100], int N){
                 }
                 if(var2[0] == 'R'){
                     int indice_reg2  = 0;
-                    sscanf(var1,"R%d", &indice_reg2);
-                    registrador[indice_reg1] =  registrador[indice_reg2]; 
+                    sscanf(var2,"R%d", &indice_reg2);
+                    registrador[indice_reg1] = registrador[indice_reg2]; 
                 }
             }
         }
