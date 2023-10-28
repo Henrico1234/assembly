@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
 #include "aritimetica.h"
 
 
@@ -18,9 +17,9 @@ void aritimetica(char acoes[][100],  char instrucao[], int indice_reg1, int indi
         registrador[indice_reg1] = registrador[indice_reg2] / registrador[indice_reg3];
     }
     else if(strcmp(instrucao,"MOD") == 0){
-     registrador[indice_reg1] = registrador[indice_reg2] % registrador[indice_reg3];
-      if(registrador[indice_reg1] < 0){
-          registrador[indice_reg1] = registrador[indice_reg1] + registrador[indice_reg3];
+        registrador[indice_reg1] = registrador[indice_reg2] % registrador[indice_reg3];
+        if(registrador[indice_reg1] < 0){
+            registrador[indice_reg1] = registrador[indice_reg1] + registrador[indice_reg3];
         }
     }
 }
