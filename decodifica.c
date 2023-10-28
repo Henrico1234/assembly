@@ -23,7 +23,7 @@ void decodifica(char acoes[][100], int N){
     
     i = 0;
 
-    for (int j = 0 ; j < 100; j++)
+    for (int j = 0 ; j < 1000; j++)
     {
         sscanf(acoes[i], "%s", instrucao);  
 
@@ -80,22 +80,19 @@ void decodifica(char acoes[][100], int N){
         sscanf(var2,"R%d", &indice_memoria);
         memoria(instrucao, registrador, indice_reg, indice_memoria, memory);
         }
-    if(strcmp(instrucao, "PRINT") == 0){
-        sscanf(acoes[i], "%s %s", instrucao, var1);
-        int indice_reg = 0;
-        sscanf(var1, "R%d", &indice_reg);
-        tela(indice_reg, registrador);
+        if(strcmp(instrucao, "PRINT") == 0){
+                sscanf(acoes[i], "%s %s", instrucao, var1);
+                int indice_reg = 0;
+                sscanf(var1, "R%d", &indice_reg);
+                tela(indice_reg, registrador);
+        }
+        i++;
     }
 
-
-
-
-
-
-    i++;
-    }
-
+   
 }
+
+
     
     
 
