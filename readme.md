@@ -21,16 +21,16 @@ com os camando implementados, ele aparecera logo após a fim do programa
 
 ## EXEMPLOS
 MOV R1 10: Move um numero inteiro 10, para o regostrador R1<br>
-MOV R1 R2: Move o interio aramazenado em R2 para R1
+MOV R1 R2: Move o interio aramazenado em R2 para R1<br>
 ADD(SOMA), SUB(SUBTRAÇÃO), MUL(MULTIPLICAÇAO), DIV(DIVISÃO), MOD(RESTO DA DIVISÃO), sempre entre dois registradores exemplo:
-ADD R1 R2
-BEQ R1 R2 5: Se R1 e R2 forem iguais pula para a linha 5
-BLT R1 R2 5: Se R1 for menor que R2 pula para a linha 5
-JMP 5: pula para a linha 5
-LOAD R1 R2: Carrega o conteudo de memoria alocado no determinado indece, que é o valor de R2, Para o Registrador R1
-STORE R1 R2: Carrega o conteudo do registrador R1 para a memoria cujo o indice é o valor de R2
-PRINT R1: Aparece na tela o valor do registrador R1
-EXIT: Encerra o programa
+ADD R1 R2<br>
+BEQ R1 R2 5: Se R1 e R2 forem iguais pula para a linha 5<br>
+BLT R1 R2 5: Se R1 for menor que R2 pula para a linha 5<br>
+JMP 5: pula para a linha 5<br>
+LOAD R1 R2: Carrega o conteudo de memoria alocado no determinado indece, que é o valor de R2, Para o Registrador R1<br>
+STORE R1 R2: Carrega o conteudo do registrador R1 para a memoria cujo o indice é o valor de R2<br>
+PRINT R1: Aparece na tela o valor do registrador R1<br>
+EXIT: Encerra o programa<br>
 
 ### Cosiderações finais
 O projeto teve como uso bibliotecas simples "stdio.h, string.h"
