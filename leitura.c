@@ -3,7 +3,7 @@
 #include "leitura.h"
 #include "decodifica.h"
 
-
+//A função levetor le linha a linha da matriz fornecida e le ate chegar no N(numero de linhas) fornecido
 void leVetor(char acoes[][100],int N){
 int i;
 char teste[10];

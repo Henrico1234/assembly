@@ -6,12 +6,20 @@
 #include "memoria.h"
 #include "tela.h"
 
+/*
+Aqui é o principal file do programa, verifica as instruções e os registradores(indices)
+e de um valor a eles caso necessario, tudo gira em torno do sscanf para ler termo a termo
+e depois usa-lo de forma coreta, primeorp sempre checando a instrução com strcpm(que compara strigs)
+
+*/
 
 void decodifica(char acoes[][100], int N){
     int i;
     char instrucao[15], var1[15], var2[15], var3[15];
     int registrador[32];
     int memory[1000];
+
+    //foram zerados tanto os registrados quanto os valores da memoria   
 
     for( i = 0; i < 32; i++){
         registrador[i] = 0;
@@ -23,14 +31,18 @@ void decodifica(char acoes[][100], int N){
     
     i = 0;
 
-    for (int j = 0 ; j < 1000; j++)
+    /*as linhas giram em torno do i, porém as interações em torno do J para evitar problemas
+    com as variaves que voltam ou avançam o programa, e para quando chegar o limite de interações 
+    parar de as comparaçoes
+    */
+    for (int j = 0 ; j < 100000; j++)
     {
         sscanf(acoes[i], "%s", instrucao);  
 
        if(strcmp(instrucao,"EXIT") == 0){
             break;
        }
-
+        //armazenando valores nos registradores, sendo interios ou outro registrador
         if(strcmp(instrucao,"MOV") == 0){
                 sscanf(acoes[i],"%s %s %s", instrucao, var1, var2);
                 if(var1[0] == 'R'){

@@ -2,6 +2,7 @@
 #include <string.h>
 #include "aritimetica.h"
 
+//Operaões que armazenam em um registrador o resultado de operçoes aritimeitcas entre dois registradores
 
 void aritimetica(char acoes[][100],  char instrucao[], int indice_reg1, int indice_reg2 ,int indice_reg3, int registrador[]){
     if(strcmp(instrucao,"ADD") == 0){

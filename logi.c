@@ -2,10 +2,12 @@
 #include <string.h>
 #include "logi.h"
 
+    //Operaões que alteram o fluxo do programa
+
 void logi( int registrador[], char instrucao[],  int indice_reg1, int indice_reg2, int endereco, char var1[], int *i){
     if(strcmp(instrucao,"JMP") == 0){
         int enderecoj;
-        sscanf(var1, "%d", & enderecoj);
+        sscanf(var1, "%d", &enderecoj);
         *i = enderecoj - 1;
 
         
