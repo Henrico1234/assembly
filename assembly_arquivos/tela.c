@@ -4,7 +4,7 @@
 
 void tela(int indice_reg, int registrador[]){
 
-    //apenas mostra na tela o valor de registrador especificado
+    //mostra na tela o valor de registrador especificado
     int linha; 
     linha = registrador[indice_reg];
     printf("%d\n", linha);

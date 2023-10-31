@@ -11,5 +11,5 @@ for( i = 0; i < N ; i++){
     fgets(acoes[i], sizeof(acoes[i]), stdin);
     sscanf(acoes[i], "%s", teste);
     }
-  decodifica(acoes, N);
+  decodifica(acoes, N);//chamando a função para decodifcar
 }

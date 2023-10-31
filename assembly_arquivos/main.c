@@ -6,8 +6,8 @@
 int main(){
     int N; 
     char acoes[100][100];
-    scanf("%d", &N);
+    scanf("%d", &N);//numero de linhas
     getchar();
-    leVetor(acoes, N);
+    leVetor(acoes, N);//função para ler a matriz
 return 0;
 }
