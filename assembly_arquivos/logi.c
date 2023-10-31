@@ -4,25 +4,27 @@
 
     //Operaões que alteram o fluxo do programa
 
-void logi( int registrador[], char instrucao[],  int indice_reg1, int indice_reg2, int endereco, char var1[], int *i){
-    if(strcmp(instrucao,"JMP") == 0){
-        int enderecoj;
-        sscanf(var1, "%d", &enderecoj);
-        *i = enderecoj - 1;
-
-        
-    }
-    if(strcmp(instrucao,"BEQ") == 0){
+void pular1( int registrador[], char instrucao[],int indice_reg1, int indice_reg2, int endereco,  int *i){
         if(registrador[indice_reg1] == registrador[indice_reg2]){
             *i = endereco -1;
 
-    }
-        
-    }
-    if(strcmp(instrucao,"BLT") == 0){
+}
+}
+
+void pular2( int registrador[], char instrucao[],int indice_reg1, int indice_reg2, int endereco,  int *i){
         if(registrador[indice_reg1] < registrador[indice_reg2]){
             *i = endereco -1;
 
-        }
-    }
 }
+}
+
+void pular3( int *i, int endereco){
+
+        *i = endereco -1;
+
+}
+
+
+
+
+

@@ -39,9 +39,6 @@ void decodifica(char acoes[][100], int N){
     {
         sscanf(acoes[i], "%s", instrucao);  
 
-       if(strcmp(instrucao,"EXIT") == 0){
-            break;
-       }
         //armazenando valores nos registradores, sendo interios ou outro registrador
         if(strcmp(instrucao,"MOV") == 0){
                 sscanf(acoes[i],"%s %s %s", instrucao, var1, var2);
@@ -61,7 +58,7 @@ void decodifica(char acoes[][100], int N){
             }
         }
 
-        if(strcmp(instrucao,"ADD") == 0 ||strcmp(instrucao,"SUB") == 0 || strcmp(instrucao,"MUL") == 0 || strcmp(instrucao,"DIV") == 0 ||strcmp(instrucao,"MOD") == 0){
+        else if(strcmp(instrucao,"ADD") == 0 ){
             sscanf(acoes[i], "%s %s %s %s", instrucao, var1, var2, var3);
             int indice_reg1 = 0;
             sscanf(var1,"R%d", &indice_reg1);
@@ -69,52 +66,112 @@ void decodifica(char acoes[][100], int N){
             sscanf(var2,"R%d", &indice_reg2);
             int indice_reg3 = 0;   
             sscanf(var3,"R%d", &indice_reg3);
-            aritimetica(acoes, instrucao, indice_reg1, indice_reg2, indice_reg3, registrador);  
+            soma( indice_reg1, indice_reg2, indice_reg3, registrador);  
+        }  
+                else if(strcmp(instrucao,"SUB") == 0 ){
+            sscanf(acoes[i], "%s %s %s %s", instrucao, var1, var2, var3);
+            int indice_reg1 = 0;
+            sscanf(var1,"R%d", &indice_reg1);
+            int indice_reg2 = 0; 
+            sscanf(var2,"R%d", &indice_reg2);
+            int indice_reg3 = 0;   
+            sscanf(var3,"R%d", &indice_reg3);
+            sub(indice_reg1, indice_reg2, indice_reg3, registrador);  
         }  
        
+               else if(strcmp(instrucao,"MUL") == 0 ){
+            sscanf(acoes[i], "%s %s %s %s", instrucao, var1, var2, var3);
+            int indice_reg1 = 0;
+            sscanf(var1,"R%d", &indice_reg1);
+            int indice_reg2 = 0; 
+            sscanf(var2,"R%d", &indice_reg2);
+            int indice_reg3 = 0;   
+            sscanf(var3,"R%d", &indice_reg3);
+            mult( indice_reg1, indice_reg2, indice_reg3, registrador);  
+        }  
+       
+               else if(strcmp(instrucao,"DIV") == 0 ){
+            sscanf(acoes[i], "%s %s %s %s", instrucao, var1, var2, var3);
+            int indice_reg1 = 0;
+            sscanf(var1,"R%d", &indice_reg1);
+            int indice_reg2 = 0; 
+            sscanf(var2,"R%d", &indice_reg2);
+            int indice_reg3 = 0;   
+            sscanf(var3,"R%d", &indice_reg3);
+            div( indice_reg1, indice_reg2, indice_reg3, registrador);  
+        }  
+       
+               else if(strcmp(instrucao,"MOD") == 0 ){
+            sscanf(acoes[i], "%s %s %s %s", instrucao, var1, var2, var3);
+            int indice_reg1 = 0;
+            sscanf(var1,"R%d", &indice_reg1);
+            int indice_reg2 = 0; 
+            sscanf(var2,"R%d", &indice_reg2);
+            int indice_reg3 = 0;   
+            sscanf(var3,"R%d", &indice_reg3);
+            resto( indice_reg1, indice_reg2, indice_reg3, registrador);  
+        }  
+       
+    
 
-    if(strcmp(instrucao,"BEQ") == 0 || strcmp(instrucao,"BLT") == 0 || strcmp(instrucao,"JMP") == 0 ){
+    else if(strcmp(instrucao,"BEQ") == 0 ){
         int endereco = 0;
         sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, &endereco);
         int indice_reg1 = 0;
         sscanf(var1,"R%d", &indice_reg1);
         int indice_reg2 = 0; 
         sscanf(var2,"R%d", &indice_reg2);
-        logi(registrador, instrucao, indice_reg1, indice_reg2, endereco, var1, &i);
-
+        pular1(registrador, instrucao, indice_reg1, indice_reg2, endereco, &i);
+        }
+        else if(strcmp(instrucao,"BLT") == 0 ){
+        int endereco = 0;
+        sscanf(acoes[i], "%s %s %s %d", instrucao, var1, var2, &endereco);
+        int indice_reg1 = 0;
+        sscanf(var1,"R%d", &indice_reg1);
+        int indice_reg2 = 0; 
+        sscanf(var2,"R%d", &indice_reg2);
+        pular2(registrador, instrucao, indice_reg1, indice_reg2, endereco, &i);
+        }
+        else if(strcmp(instrucao,"JMP") == 0 ){
+            int endereco = 0;
+            sscanf(acoes[i]," %s %d", instrucao, &endereco);
+            pular3(&i, endereco);
         }
 
-    if(strcmp(instrucao,"STORE") == 0 ||strcmp(instrucao,"LOAD") == 0){
-        sscanf(acoes[i], "%s %s %s", instrucao, var1, var2);
-        int indice_reg = 0;
-        sscanf(var1,"R%d", &indice_reg);
-        int indice_memoria = 0; 
-        sscanf(var2,"R%d", &indice_memoria);
-        memoria(instrucao, registrador, indice_reg, indice_memoria, memory);
+
+        else if(strcmp(instrucao,"STORE") == 0){
+            sscanf(acoes[i], "%s %s %s", instrucao, var1, var2);
+            int indice_reg = 0;
+            sscanf(var1,"R%d", &indice_reg);
+            int indice_memoria = 0; 
+            sscanf(var2,"R%d", &indice_memoria);
+            memoria1(instrucao, registrador, indice_reg, indice_memoria, memory);
         }
-        if(strcmp(instrucao, "PRINT") == 0){
+        else if(strcmp(instrucao,"LOAD") == 0){
+            sscanf(acoes[i], "%s %s %s", instrucao, var1, var2);
+            int indice_reg = 0;
+            sscanf(var1,"R%d", &indice_reg);
+            int indice_memoria = 0; 
+            sscanf(var2,"R%d", &indice_memoria);
+            memoria2(instrucao, registrador, indice_reg, indice_memoria, memory);
+        }
+
+        else if(strcmp(instrucao, "PRINT") == 0){
                 sscanf(acoes[i], "%s %s", instrucao, var1);
                 int indice_reg = 0;
                 sscanf(var1, "R%d", &indice_reg);
                 tela(indice_reg, registrador);
+                
         }
+        else if(strcmp(instrucao,"EXIT") == 0){
+            break;
+       }
         i++;
     }
 
-   
 }
 
 
     
-    
-
-
-
-
-
-
-
-
-
 
 
