@@ -1,87 +1,37 @@
-# Comparador de Modelos LLM
+# projeto 2 programação de computadores 1
+## autor
+Nome:Henrico Costa Correia 
+Instituição: Instituto Fedaral De Brasília
+Disciplina: PC1 (Daniel Saad)
 
----
+### Descrição do codigo(implementação)
+O Codigo se trata de um simuladr simples de assembly na linguagem C. Ele permite a vc escrever e Executar programas em um conjunto de instruções de um assembly customizado
 
+### Modo de Uso
 
-## Descrição do Código (Implementação)
-Este projeto tem como objetivo comparar diferentes modelos de linguagem natural (LLMs), como o ChatGPT e um modelo da Hugging Face. Ele permite ao usuário inserir um prompt e receber respostas de múltiplos modelos, além de avaliar e selecionar a melhor resposta com base em critérios como similaridade semântica e legibilidade.
+1. **compilação** para compilar o codigo, na pasta que ele estiver, execute o seguinte comando no terminal:
+make (fara com que todos os files compilem de uma vez)
+logo após escreva "./main"
 
-## Tecnologias Utilizadas
-- **Python** (versão recomendada: 3.8+)
-- **OpenAI API** (ChatGPT)
-- **Hugging Face Transformers**
-- **Sentence Transformers** (para avaliação de respostas)
-- **NumPy** (cálculo de métricas)
-- **Textstat** (métrica de legibilidade)
+2. **Execução**  O código assembly pode ser escrito diretamente no simulador, seguindo a sintaxe específica implemetada, e de um
+"ENTER"
 
-## Estrutura do Projeto
-```plaintext
-comparador-llms/
-│── factory.py            # Implementação dos modelos de LLM (ChatGPT e outro da Hugging Face)
-│── strategy.py           # Estratégia de avaliação das respostas com critérios de similaridade e legibilidade
-│── observer.py           # Implementação do padrão Observer para monitoramento da escolha de respostas
-│── main.py               # Arquivo principal que executa o programa e interage com o usuário
-│── requirements.txt      # Lista de dependências do projeto
-│── README.md             # Documentação do projeto
-```
+3. **Saida** Caso gere um resultado e for pedido para exibir ele 
+com os camando implementados, ele aparecera logo após a fim do programa
 
-## Configuração e Instalação
+## EXEMPLOS
+MOV R1 10: Move um numero inteiro 10, para o regostrador R1<br>
+MOV R1 R2: Move o interio aramazenado em R2 para R1<br>
+ADD(SOMA), SUB(SUBTRAÇÃO), MUL(MULTIPLICAÇAO), DIV(DIVISÃO), MOD(RESTO DA DIVISÃO), sempre entre dois registradores exemplo:
+ADD R1 R2<br>
+BEQ R1 R2 5: Se R1 e R2 forem iguais pula para a linha 5<br>
+BLT R1 R2 5: Se R1 for menor que R2 pula para a linha 5<br>
+JMP 5: pula para a linha 5<br>
+LOAD R1 R2: Carrega o conteudo de memoria alocado no determinado indece, que é o valor de R2, Para o Registrador R1<br>
+STORE R1 R2: Carrega o conteudo do registrador R1 para a memoria cujo o indice é o valor de R2<br>
+PRINT R1: Aparece na tela o valor do registrador R1<br>
+EXIT: Encerra o programa<br>
 
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/Henrico1234/comparador-llms.git
-   cd comparador-llms
-   ```
-
-3. **Instale as dependências:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure a API Key do OpenAI:**
-   No arquivo `main.py`, adicione sua chave de API:
-   ```python
-   openai_api_key = "sua-api-key-aqui"
-   ```
-
-## Modo de Uso
-
-1. **Execute o programa:**
-   ```bash
-   python main.py
-   ```
-
-2. **Interaja com o menu:**
-   - Escolha a opção `1` para inserir um prompt.
-   - O sistema consultará os modelos e exibirá as respostas.
-   - A melhor resposta será escolhida com base em critérios definidos na estratégia de avaliação.
-   - Escolha `2` para sair do programa.
-
-## Exemplo de Saída
-```
-=== Menu ===
-1. Fazer uma pergunta
-2. Sair
-Escolha uma opção: 1
-
-Digite sua pergunta: O que é aprendizado de máquina?
-
-Respostas dos LLMs:
-ChatGPT: Aprendizado de máquina é um campo da IA que permite aos computadores aprenderem padrões a partir de dados.
-OutroLLM: Machine learning é uma abordagem que utiliza algoritmos para identificar padrões em dados.
-
-=== Atualização da Resposta ===
-Melhor resposta escolhida: Aprendizado de máquina é um campo da IA que permite aos computadores aprenderem padrões a partir de dados.
-Explicação: 
-- Similaridade semântica: 0.92
-- Legibilidade (Flesch-Kincaid): 72.5
-```
-
-## Considerações Finais
-O projeto utiliza conceitos de Padrões de Projeto, como Factory, Strategy e Observer, para manter a modularidade e facilitar a adição de novos modelos de LLM.
-
-# Autor
-Nome: Henrico Costa 
-
-
-
+### Cosiderações finais
+O projeto teve como uso bibliotecas simples "stdio.h, string.h"
+e gira em torno de matrizes e vetores e o uso de ponteiro gerou muita facilidade para os termos que mudavam as linhas do programa
